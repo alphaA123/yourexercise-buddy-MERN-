@@ -8,17 +8,21 @@ import ExercisesList from "./components/exercises-list.component";
 import EditExercise from "./components/edit-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
+import Footer from "./components/footer.component";
 
 function App() {
   return (
-    <Router>
+    <div className="wall">
+      <Router>
         <Navbar />
         <br />
         <Route exact path='/' component={ExercisesList} />
         <Route path='/edit/:id' component={EditExercise} />
         <Route path='/create' component={CreateExercise} />
         <Route path='/user' component={CreateUser} />
-    </Router>
+      </Router>
+      <Footer />
+    </div>
   );
 }
 

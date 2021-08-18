@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Tourney:ital,wght@1,700&display=swap');
+
+body{
+background-image: url(https://images.pexels.com/photos/669576/pexels-photo-669576.jpeg?cs=srgb&dl=pexels-lukas-669576.jpg&fm=jpg);
+background-size: cover;
+}
+.contain {
+  border: 1px solid grey;
+  width: 60%;
+  align-items: center;
+  margin-left: 200px;
+  padding: 20px;
+  border-radius: 10px;
+ font-family: 'Tourney', cursive;
+ color:chartreuse;
+ text-shadow: red;
+}
+
+#brand_pos {
+  padding: 10px;
+  margin-left: 20px;
+  font-family: 'Tourney', cursive;
+}
+
+.font{
+    font-family: 'Tourney', cursive;
+}
+footer {
+  font-family: "Cookie", cursive;
+  display: flex;
+  color: black;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  width: 100%;
+  font-size: large;
+  justify-content: center;
+  align-items: center;
+}
+
+.glow {
+  color: rgb(8, 8, 8);
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px chartreuse, 0 0 40px chartreuse, 0 0 50px chartreuse, 0 0 60px chartreuse, 0 0 70px chartreuse;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+#but{
+    background-color: chartreuse;
+}

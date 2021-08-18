@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 class Navbar extends Component {
   render() {
     return (
-      <nav className='navbar navbar-dark bg-dark navbar-expand-lg'>
-        <Link to='/' className='navbar-brand'>
-          Exercise Tracker
+      <nav className='navbar navbar-dark bg-dark navbar-expand-lg font'>
+        <Link to='/' className='navbar-brand glow' id='brand_pos'>
+          Exercise Buddy
         </Link>
         <div className='collapse navbar-collapse'>
           <ul className='navbar-nav mr-auto'>

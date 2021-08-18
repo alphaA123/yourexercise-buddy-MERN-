@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import DatePicker from 'react-datepicker';
+import axios from "axios";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 class CreateExercises extends Component {
@@ -20,9 +21,13 @@ class CreateExercises extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      users: ["test user"],
-      username: "test user",
+    axios.get("http://localhost:5000/users/").then((response) => {
+      if (response.data.length > 0) {
+        this.setState({
+          users: response.data.map((user) => user.username),
+          username: response.data[0].username,
+        });
+      }
     });
   }
 
@@ -60,13 +65,16 @@ class CreateExercises extends Component {
       date: this.state.date,
     };
 
+    axios
+      .post("http://localhost:5000/exercises/add", exercise)
+      .then((res) => console.log(res.data));
     console.log(exercise);
     window.location = "/";
   }
 
   render() {
     return (
-      <div>
+      <div className='contain'>
         <h3>Create New Exercise Log</h3>
         <form onSubmit={this.onSubmit}>
           <div className='form-group'>
@@ -87,7 +95,8 @@ class CreateExercises extends Component {
               })}
             </select>
           </div>
-          <div className='form-control'>
+          <br></br>
+          <div className='form-group'>
             <label>Description: </label>
             <input
               type='text'
@@ -97,6 +106,7 @@ class CreateExercises extends Component {
               onChange={this.onChangeDescription}
             />
           </div>
+          <br />
           <div className='form-group'>
             <label>Duration (in minutes): </label>
             <input
@@ -106,6 +116,7 @@ class CreateExercises extends Component {
               onChange={this.onChangeDuration}
             />
           </div>
+          <br></br>
           <div className='form-group'>
             <label>Date: </label>
             <div>
@@ -115,12 +126,14 @@ class CreateExercises extends Component {
               />
             </div>
           </div>
+          <br></br>
 
           <div className='form-group'>
             <input
               type='submit'
               value='Create Exercise Log'
-              className='btn btn-primary'
+              className='btn'
+              id='but'
             />
           </div>
         </form>
